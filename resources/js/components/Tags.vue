@@ -1,7 +1,7 @@
 <template>
   <div class="d-inline-block">
     <span class="badge bg-success text-white mx-1" v-for="(tag,i) in tagList" :key="i">{{tag.name}}</span>
-  </div class="d-inline-block">
+  </div>
 </template>
 
 <script>
@@ -11,6 +11,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
