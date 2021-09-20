@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'HomeController@index')->name('homepage');
-
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
@@ -24,3 +21,6 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     Route::resource('/posts', 'PostController');
     Route::resource('/categories', 'CategoryController');
 });
+
+Route::get('/{any?}', 'HomeController@index')->where('any', '.*');
+Route::get('/post/{slug}', 'HomeController@show');
