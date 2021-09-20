@@ -11,7 +11,7 @@
             <span class="badge bg-success text-white mx-1">{{post.post_category.name}}</span>
           </div>
           <div class="col" v-if="post.tags">Tags:
-            <span class="badge bg-success text-white mx-1" v-for="(tag,i) in post.tags" :key="i">{{tag.name}}</span>
+            <Tags :tagList="post.tags"/>
           </div>
         </div>
       </div>
@@ -20,8 +20,13 @@
 </template>
 
 <script>
+import Tags from '../components/Tags';
+
 export default {
   name: 'SinglePost',
+  components: {
+    Tags
+  },
   data(){
     return{
       url : 'http://127.0.0.1:8000/api/posts/',
