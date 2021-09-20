@@ -32,9 +32,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        // richiamo il post presente nel DB che riporta lo slug richiesto
+        $post = Post::where('slug', $slug)->with(['postCategory', 'tags'])->first();
+
+        // restituisco un JSON visibile anche alla route che si trova in api.php
+        return response()->json([
+            'success' => true,
+            'results' => $post
+        ]);
     }
 
 }

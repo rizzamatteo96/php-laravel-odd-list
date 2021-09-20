@@ -23,4 +23,3 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
 });
 
 Route::get('/{any?}', 'HomeController@index')->where('any', '.*');
-Route::get('/post/{slug}', 'HomeController@show');

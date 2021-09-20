@@ -9,7 +9,7 @@
             <h3 class="card-title">{{post.title}}</h3>
             <p class="card-text">{{sliceText(post.description, 40)}}</p>
             <p class="card-text"><small class="text-muted">{{takeData(post.created_at)}}</small></p>
-            <button type="button" class="btn btn-outline-dark">Leggi articolo</button>
+            <router-link :to="{name: 'post-details', params: { slug : post.slug }}" class="btn btn-outline-dark">Leggi articolo</router-link>
           </div>
         </div>
       </div>
